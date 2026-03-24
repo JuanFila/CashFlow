@@ -5,8 +5,10 @@
     <Project Path="src/CashFlow.Communication/CashFlow.Communication.csproj" />
     <Project Path="src/CashFlow.Domain/CashFlow.Domain.csproj" />
     <Project Path="src/CashFlow.Exception/CashFlow.Exception.csproj" />
+    <Project Path="src/CashflowInfraestructure/CashflowInfraestructure.csproj" Id="65bf9bfe-dacd-498c-b43c-f2202cac3616" />
   </Folder>
   <Folder Name="/tests/">
+    <Project Path="tests/CommonTestUtilities/CommonTestUtilities.csproj" Id="3d9090ca-a907-4432-b651-fa1faac28ee6" />
     <Project Path="tests/Validators.Tests/Validators.Tests.csproj" Id="d1c8f5a8-abc7-4cbd-b7f7-ccfa0970f972" />
   </Folder>
 </Solution>
