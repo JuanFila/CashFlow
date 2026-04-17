@@ -1,19 +1,22 @@
 ﻿using CashFlow.Application.UseCase.Expenses.Register;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Response;
-using CashFlow.Domain.Entity;
 using CashFlow.Domain.Enums;
 using CashFlow.Domain.Repositories.Expenses;
 using CashFlow.Exception.ExceptionBase;
+using CashFlow.Domain.Entity;
+using CashFlow.Domain.Repositories;
 
 namespace CashFlowApplication.UseCase.Expenses.Register;
 
 public class RegisterExpensesUseCase : IRegisterExpensesUseCase
 {
     private readonly IExpensesRepository _repository;
-    public RegisterExpensesUseCase(IExpensesRepository repository)
+    private readonly IUnitOfWork _unitOfWork;
+    public RegisterExpensesUseCase(IExpensesRepository repository, IUnitOfWork unitOfWork)
     {
         _repository = repository;
+        _unitOfWork = unitOfWork;
     }
 
     public ResponseRegisterExpenses Execute(RequestExpense request)
@@ -30,6 +33,8 @@ public class RegisterExpensesUseCase : IRegisterExpensesUseCase
         };
 
         _repository.Add(entity);
+
+        _unitOfWork.Commit();
 
         return new ResponseRegisterExpenses();
     }
