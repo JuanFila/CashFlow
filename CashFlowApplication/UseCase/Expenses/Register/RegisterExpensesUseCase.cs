@@ -19,7 +19,7 @@ public class RegisterExpensesUseCase : IRegisterExpensesUseCase
         _unitOfWork = unitOfWork;
     }
 
-    public ResponseRegisterExpenses Execute(RequestExpense request)
+    public async Task<ResponseRegisterExpenses> Execute(RequestExpense request)
     {   
         Validate(request);
 
@@ -32,9 +32,9 @@ public class RegisterExpensesUseCase : IRegisterExpensesUseCase
             Title = request.Title,
         };
 
-        _repository.Add(entity);
+        await _repository.Add(entity);
 
-        _unitOfWork.Commit();
+        await _unitOfWork.Commit();
 
         return new ResponseRegisterExpenses();
     }
