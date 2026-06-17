@@ -21,5 +21,6 @@ public class AutoMapping : Profile
     private void EntityToResponse()
     {
         CreateMap<Expense, ResponseRegisterExpenses>();
+        CreateMap<Expense, ResponseShortExpense>();
     }
 }
