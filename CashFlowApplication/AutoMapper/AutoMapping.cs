@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CashFlow.Application.UseCase.Expenses.GetById;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Response;
 using CashFlow.Domain.Entity;
@@ -22,5 +23,6 @@ public class AutoMapping : Profile
     {
         CreateMap<Expense, ResponseRegisterExpenses>();
         CreateMap<Expense, ResponseShortExpense>();
+        CreateMap<Expense, ResponseExpensesById>();
     }
 }
