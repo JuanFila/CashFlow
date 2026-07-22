@@ -135,4 +135,7 @@
   <data name="TITLE_MUST_NOT_THAN" xml:space="preserve">
     <value>O título é obrigatório</value>
   </data>
+  <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
+    <value>Despesa não encontrada</value>
+  </data>
 </root>

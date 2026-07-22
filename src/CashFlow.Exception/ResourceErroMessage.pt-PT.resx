@@ -126,10 +126,16 @@
   <data name="PAYMENT_TYPE_INVALID" xml:space="preserve">
     <value>O Tipo de pagamento não é válido</value>
   </data>
-  <data name="TITLE_MUST_NOT_THAN" xml:space="preserve">
-    <value>O tétulo é obrigatório</value>
+  <data name="TITLE_REQUIRED" xml:space="preserve">
+    <value>Requer um título</value>
   </data>
   <data name="UNKNOWN_ERROR" xml:space="preserve">
     <value>Erro desconhecido</value>
+  </data>
+  <data name="TITLE_MUST_NOT_THAN" xml:space="preserve">
+    <value>O tétulo é obrigatório</value>
+  </data>
+  <data name="EXPENSE_NOT_FOUND" xml:space="preserve">
+    <value>Despesa não encontrada</value>
   </data>
 </root>
