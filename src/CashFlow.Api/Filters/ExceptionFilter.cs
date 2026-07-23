@@ -22,37 +22,20 @@ public class ExceptionFilter : IExceptionFilter
 
     private void HandleProjetcException(ExceptionContext context)
     {
-        if (context.Exception is ErrorOnValidationException errorOnValidationException)
-        {
-            var errorResponse = new ResponseError(errorOnValidationException.Errors);
 
-            context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
+        var cashFlowException = context.Exception as CashFlowException;
+        var errorResponse = new ResponseError(cashFlowException!.GetErrors());
 
-            context.Result = new BadRequestObjectResult(errorResponse);
-        }
-        if (context.Exception is NotFoundException notFoundException)
-        {
-            var errorResponse = new ResponseError(notFoundException.Message);
+        context.HttpContext.Response.StatusCode = cashFlowException.StatusCode;
+        context.Result = new ObjectResult(new ResponseError(cashFlowException.Message));
 
-            context.HttpContext.Response.StatusCode = StatusCodes.Status404NotFound;
-            context.Result = new NotFoundObjectResult(errorResponse);
-        }
-        else
-        {
-            var errorResponse = new ResponseError(context.Exception.Message);
-
-            context.HttpContext.Response.StatusCode = StatusCodes.Status400BadRequest;
-
-            context.Result = new BadRequestObjectResult(errorResponse);
-        }
     }
     private void ThrowUnkowError(ExceptionContext context)
-    {
+    {   
         var errorResponse = new ResponseError(ResourceErroMessage.UNKNOWN_ERROR);
 
         context.HttpContext.Response.StatusCode = StatusCodes.Status500InternalServerError;
 
-
-            context.Result = new ObjectResult(errorResponse);
+        context.Result = new ObjectResult(errorResponse);
     }
 }
