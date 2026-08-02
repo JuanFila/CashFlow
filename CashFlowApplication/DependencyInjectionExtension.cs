@@ -1,7 +1,9 @@
 ﻿using CashFlow.Application.AutoMapper;
+using CashFlow.Application.UseCase.Expenses.Delete;
 using CashFlow.Application.UseCase.Expenses.GetAll;
 using CashFlow.Application.UseCase.Expenses.GetById;
 using CashFlow.Application.UseCase.Expenses.Register;
+using CashFlow.Application.UseCase.Expenses.Update;
 using CashFlowApplication.UseCase.Expenses.Register;
 using Microsoft.Extensions.DependencyInjection;
 namespace CashFlow.Application;
@@ -24,6 +26,8 @@ public static class DependencyInjectionExtension
         services.AddScoped<IRegisterExpensesUseCase, RegisterExpensesUseCase>();
         services.AddScoped<IGetAllExpensesUseCase, GetAllExpenseUseCase>();
         services.AddScoped<IExpenseByIdUseCase, GetExpenseByIdUseCase>();
+        services.AddScoped<IDeleteExpenseUseCase, DeleteExpenseUseCase>();
+        services.AddScoped<IUpdateExpenseUseCase, UpdateExpenseUseCase>();
 
     }
 }
