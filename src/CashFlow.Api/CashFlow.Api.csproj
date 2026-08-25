@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.20">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\CashFlowApplication\CashFlow.Application.csproj" />
+    <ProjectReference Include="..\CashFlowApplication\CashFlow.Application.csproj" />
     <ProjectReference Include="..\CashFlow.Communication\CashFlow.Communication.csproj" />
     <ProjectReference Include="..\CashFlow.Exception\CashFlow.Exception.csproj" />
     <ProjectReference Include="..\CashflowInfraestructure\Cashflow.Infraestructure.csproj" />
