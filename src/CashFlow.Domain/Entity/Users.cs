@@ -1,4 +1,6 @@
-﻿namespace CashFlow.Domain.Entity;
+﻿using CashFlow.Domain.Enums;
+
+namespace CashFlow.Domain.Entity;
 
 public class User
 {
@@ -9,9 +11,9 @@ public class User
 
     public string Password { get; set; } = string.Empty;
 
-    public Guid Guid { get; set; }
+    public Guid UserIdentifier { get; set; }
 
-    public string Role{ get; set; } = string.Empty;
+    public string Role { get; set; } = Roles.TEAM_MEMBER;
 
     public DateOnly CreateAt { get; set; }
 }

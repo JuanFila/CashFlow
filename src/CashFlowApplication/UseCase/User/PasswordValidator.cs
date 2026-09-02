@@ -65,6 +65,6 @@ public partial class PasswordValidator<T> : PropertyValidator<T, string>
     [GeneratedRegex(@"[a-z]+")]
     private static partial Regex LowerCaseLetter();
 
-    [GeneratedRegex(@"[\!\?\*\.]+")]
+    [GeneratedRegex(@"[\!\?\*\.\@]+")]
     private static partial Regex SpecialSymbols();
 }

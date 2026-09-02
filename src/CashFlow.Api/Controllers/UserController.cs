@@ -1,4 +1,5 @@
-﻿using CashFlow.Application.UseCases.Users.Register;
+﻿using CashFlow.Application.UseCase.User.Register;
+using CashFlow.Application.UseCases.Users.Register;
 using CashFlow.Communication.Requests;
 using CashFlow.Communication.Response;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +14,7 @@ public class UserController : ControllerBase
     [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status201Created)]
     [ProducesResponseType(typeof(ResponseError), StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> AsyncRegister(
-        [FromServices] RegisterUserUseCase useCase,
+        [FromServices] IRegisterUserUseCase useCase,
         [FromBody] RequestRegisterUserJson request)
     {
         var response = await useCase.Execute(request);
